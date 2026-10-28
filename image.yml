@@ -7,9 +7,12 @@ summary: '[PCSX2](https://pcsx2.net/) is an open source PS2 Emulator.'
 upstream:
   url: https://pcsx2.net/
   version:
-    type: command
-    run: |-
-      curl -s -L https://ppa.launchpadcontent.net/pcsx2-team/pcsx2-daily/ubuntu/dists/resolute/main/binary-amd64/Packages.gz | gunzip |grep -A 7 -m 1 'Package: pcsx2' | awk -F ': ' '/Version/{print $2;exit}' | awk -F'~' '{print $1}'
+    type: deb_packages
+    index_url: https://ppa.launchpadcontent.net/pcsx2-team/pcsx2-daily/ubuntu/dists/resolute/main/binary-amd64/Packages.gz
+    package: pcsx2-stable
+    transform:
+    - regex: ~.*$
+      replace: ''
 
 release:
   branch: master
