@@ -13,6 +13,15 @@ upstream:
     transform:
     - regex: ~.*$
       replace: ''
+  notes:
+    type: github_release
+    repo: PCSX2/pcsx2
+    tag: v${VERSION}
+  sponsor:
+  - name: GitHub Sponsors
+    url: https://github.com/sponsors/PCSX2
+  - name: Liberapay
+    url: https://liberapay.com/PCSX2
 
 release:
   branch: master
